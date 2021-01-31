@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ "$1" != "" ];
+then
+    TEMPTILE="/devpi/backups/tmp_$1.tar.gz"
+    FILE="/devpi/backups/$1.tar.gz"
+
+    cd /devpi
+    tar -czf $TEMPTILE data
+    mv $TEMPTILE $FILE
+fi

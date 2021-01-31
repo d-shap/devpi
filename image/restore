@@ -1,0 +1,11 @@
+#!/bin/bash
+if [ "$1" != "" ];
+then
+    FILE="/devpi/backups/$1.tar.gz"
+
+    if [ -e "$FILE" ];
+    then
+        cd /devpi
+        tar -xzf $FILE data
+    fi
+fi
