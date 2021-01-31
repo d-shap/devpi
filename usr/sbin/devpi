@@ -1,0 +1,11 @@
+#!/bin/bash
+docker run \
+    --rm \
+    --name devpi \
+    -d \
+    -v /etc/localtime:/etc/localtime \
+    -v /devpi/data:/devpi/data \
+    -v /var/log/devpi:/devpi/logs \
+    -v /var/backups/devpi:/devpi/backups \
+    -p 8003:8003 \
+        devpi
