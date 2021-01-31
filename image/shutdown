@@ -1,0 +1,24 @@
+#!/bin/bash
+/etc/init.d/nginx stop
+
+stopDevPiServerCmd=(devpi-server)
+stopDevPiServerCmd+=("--role")
+stopDevPiServerCmd+=("standalone")
+stopDevPiServerCmd+=("--host")
+stopDevPiServerCmd+=("0.0.0.0")
+stopDevPiServerCmd+=("--port")
+stopDevPiServerCmd+=("3141")
+stopDevPiServerCmd+=("--serverdir")
+stopDevPiServerCmd+=("/devpi/data")
+stopDevPiServerCmd+=("--storage")
+stopDevPiServerCmd+=("sqlite")
+stopDevPiServerCmd+=("--secretfile")
+stopDevPiServerCmd+=("/devpi/data/.__secrets")
+stopDevPiServerCmd+=("--restrict-modify")
+stopDevPiServerCmd+=("root")
+stopDevPiServerCmd+=("--logger-cfg")
+stopDevPiServerCmd+=("/devpi/logging.yaml")
+stopDevPiServerCmd+=("--absolute-urls")
+stopDevPiServerCmd+=("--stop")
+
+"${stopDevPiServerCmd[@]}" & wait
