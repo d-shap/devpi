@@ -16,8 +16,10 @@ RUN         apt-get update && \
             apt-get install --assume-yes \
                 apt-utils \
                 build-essential \
+                cron \
+                net-tools \
+                procps \
                 software-properties-common \
-                unzip \
                 vim \
                 wget && \
             apt-get update && \
@@ -88,14 +90,17 @@ RUN         pip3 install -U devpi-server && \
             mv /tmp/logging.yaml /devpi
 
 # Configure helper scripts
-RUN         mv /tmp/startup /devpi/scripts && \
-            mv /tmp/shutdown /devpi/scripts && \
-            mv /tmp/backup /devpi/scripts && \
-            mv /tmp/restore /devpi/scripts && \
-            chmod 755 /devpi/scripts/*
+RUN         mv /tmp/containerConfig /devpi/scripts && \
+            mv /tmp/containerDummy /devpi/scripts && \
+            mv /tmp/containerStartup /devpi/scripts && \
+            mv /tmp/containerShutdown /devpi/scripts && \
+            mv /tmp/webStartup /devpi/scripts && \
+            mv /tmp/webShutdown /devpi/scripts && \
+            mv /tmp/utilBackup /devpi/scripts && \
+utilRestore            chmod 755 /devpi/scripts/*
 
 USER        $RUN_USER
 
 EXPOSE      $RUN_PORT
 
-ENTRYPOINT  ["/devpi/scripts/startup"]
+ENTRYPOINT  ["/devpi/scripts/containerStartup"]
