@@ -97,7 +97,8 @@ RUN         mv /tmp/containerConfig /devpi/scripts && \
             mv /tmp/webStartup /devpi/scripts && \
             mv /tmp/webShutdown /devpi/scripts && \
             mv /tmp/utilBackup /devpi/scripts && \
-utilRestore            chmod 755 /devpi/scripts/*
+            mv /tmp/utilRestore /devpi/scripts && \
+            chmod 755 /devpi/scripts/*
 
 USER        $RUN_USER
 
