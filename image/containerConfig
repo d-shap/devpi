@@ -1,4 +1,6 @@
 #!/bin/bash
+startNginXCmd="/etc/init.d/nginx start"
+stopNginXCmd="/etc/init.d/nginx stop"
 startWebCmd="/devpi/scripts/webStartup"
 stopWebCmd="/devpi/scripts/webShutdown"
 startDummyCmd="/devpi/scripts/containerDummy"
