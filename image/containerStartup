@@ -14,5 +14,5 @@ fi
 trap /devpi/scripts/containerShutdown HUP SIGHUP INT SIGINT QUIT SIGQUIT TERM SIGTERM
 
 source /devpi/scripts/containerConfig
-$startWebCmd & $startDummyCmd
+$startWebCmd & $startNginXCmd & $startDummyCmd
 eval $waitDummyCmd
