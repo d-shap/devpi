@@ -1,0 +1,18 @@
+#!/bin/bash
+if [ ! -f /devpi/data/.__secrets ];
+then
+    touch /devpi/data/.__secrets
+fi
+if [ ! -f /devpi/data/.nodeinfo ];
+then
+    devpi-init \
+        --role standalone \
+        --serverdir /devpi/data \
+        --storage sqlite
+fi
+
+trap /devpi/scripts/containerShutdown HUP SIGHUP INT SIGINT QUIT SIGQUIT TERM SIGTERM
+
+source /devpi/scripts/containerConfig
+$startWebCmd & $startDummyCmd
+eval $waitDummyCmd
