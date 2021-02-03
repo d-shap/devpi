@@ -22,4 +22,4 @@ handlers:
     encoding: utf8
 root:
   level: INFO
-  handlers: [info_file_handler, error_file_handler]
+  handlers: [ info_file_handler, error_file_handler ]
