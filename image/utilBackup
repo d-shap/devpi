@@ -3,8 +3,14 @@ if [ "$1" != "" ];
 then
     TEMPTILE="/devpi/backups/tmp_$1.tar.gz"
     FILE="/devpi/backups/$1.tar.gz"
+    source /devpi/scripts/containerConfig
+
+    $stopWebCmd
 
     cd /devpi
     tar -czf $TEMPTILE data
+    rm -rf $FILE
     mv $TEMPTILE $FILE
+
+    $startWebCmd
 fi

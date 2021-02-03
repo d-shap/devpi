@@ -2,10 +2,15 @@
 if [ "$1" != "" ];
 then
     FILE="/devpi/backups/$1.tar.gz"
+    source /devpi/scripts/containerConfig
 
     if [ -e "$FILE" ];
     then
+        $stopWebCmd
+
         cd /devpi
         tar -xzf $FILE data
+
+        $startWebCmd
     fi
 fi
