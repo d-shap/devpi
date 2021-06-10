@@ -69,7 +69,7 @@ RUN         apt-get update && \
             chmod a+w /run
 
 # Configure app
-RUN         pip3 install -U devpi-server && \
+RUN         pip3 install devpi-server==5.5.1 && \
             pip3 install -U devpi-web && \
             pip3 install -U devpi-client && \
             mkdir /home/devpi && \
