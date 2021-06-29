@@ -5,8 +5,8 @@ ARG         hostuid=963
 ARG         hostgid=963
 
 ENV         DEBIAN_FRONTEND=noninteractive \
-            RUN_USER=devpi \
-            RUN_GROUP=devpi \
+            RUN_USER="devpi" \
+            RUN_GROUP="devpi" \
             RUN_PORT=8003
 
 COPY        . /tmp
