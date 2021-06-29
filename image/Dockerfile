@@ -70,9 +70,11 @@ RUN         apt-get update && \
             chmod a+w /run
 
 # Configure app
-RUN         pip3 install devpi-server==5.5.1 && \
-            pip3 install -U devpi-web && \
-            pip3 install -U devpi-client && \
+RUN         pip3 install --upgrade setuptools && \
+            pip3 install --upgrade ruamel.yaml && \
+            pip3 install devpi-server==5.5.1 && \
+            pip3 install --upgrade devpi-web && \
+            pip3 install --upgrade devpi-client && \
             mkdir /home/devpi && \
             mkdir /home/devpi/.pip && \
             mv /tmp/pip.conf  /home/devpi/.pip && \
