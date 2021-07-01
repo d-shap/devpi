@@ -77,7 +77,7 @@ RUN         pip3 install --upgrade setuptools && \
             pip3 install --upgrade devpi-client && \
             mkdir /home/devpi && \
             mkdir /home/devpi/.pip && \
-            mv /tmp/pip.conf  /home/devpi/.pip && \
+            mv /tmp/pip.conf /home/devpi/.pip && \
             chown -R $RUN_USER:$RUN_GROUP /home/devpi && \
             cd /tmp && \
             devpi-gen-config && \
