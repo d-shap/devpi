@@ -229,6 +229,3 @@ sudo crontab -l | { cat; echo "minute hour * * * /usr/bin/dputil backup <filenam
 ```
 
 ### How to create new user
-
-# Donation
-If you find my code useful, you can [bye me a coffee](https://www.paypal.me/dshapovalov)
